@@ -1,0 +1,39 @@
+﻿@page
+@model VendingMachine.Pages.User.IndexModel
+@{
+}
+
+@{
+    ViewBag.Title = "Vending Machine";
+}
+
+<table class="drink">
+    <tr>
+        <td>Drink</td>
+        @foreach (var item in Model.DrinkViewModel.Drinks)
+        {
+            <td>@item.Name</td>
+        }
+    </tr>
+    <tr>
+        <td>Image</td>
+        @foreach (var item in Model.DrinkViewModel.Drinks)
+        {
+            <td><img src="~/@item.IMGPath" alt="@item.Name" width="32" height="32"></td>
+        }
+    </tr>
+    <tr>
+        <td>Cost</td>
+        @foreach (var item in Model.DrinkViewModel.Drinks)
+        {
+            <td>@item.Cost</td>
+        }
+    </tr>
+    <tr>
+        <td>Amount</td>
+        @foreach (var item in Model.DrinkViewModel.Drinks)
+        {
+            <td>@item.Amount</td>
+        }
+    </tr>
+</table>
