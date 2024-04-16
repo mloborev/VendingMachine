@@ -5,16 +5,16 @@ using VendingMachine.Repositories.Interfaces;
 
 namespace VendingMachine.Repositories
 {
-    public class DrinkRepository : IDrinkRepository
+    public class CoinRepository : ICoinRepository
     {
         private ApplicationContext _context;
-        public DrinkRepository(ApplicationContext context)
+        public CoinRepository(ApplicationContext context)
         {
             _context = context;
         }
-        public async Task<List<Drink>> GetAllDataAsync()
+        public async Task<List<Coin>> GetAllDataAsync()
         {
-            return await _context.Drinks.ToListAsync();
+            return await _context.Coins.ToListAsync();
         }
     }
 }

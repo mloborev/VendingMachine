@@ -5,6 +5,7 @@
 
 @{
     ViewBag.Title = "Vending Machine";
+    var coin = "coin";
 }
 
 <table class="drink">
@@ -36,4 +37,21 @@
             <td>@item.Amount</td>
         }
     </tr>
+</table>
+
+<table class="coin">
+    <tr>
+        <td>Value</td>
+        <td>Amount</td>
+        <td>Put</td>
+    </tr>
+    @foreach (var item in Model.DrinkViewModel.Coins)
+    {
+        <tr>
+            <td>@item.Value</td>
+            <td>0</td>
+            <td><button class="coin-button" id=@(coin+item.CoinId)>Put</button></td>
+            <td></td>
+        </tr>
+    }
 </table>
