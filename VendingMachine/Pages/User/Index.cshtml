@@ -40,7 +40,10 @@
         <td></td>
         @foreach (var item in Model.DrinkViewModel.Drinks)
         {
-            <td><button class="drink-button" id=@("drink"+item.DrinkId)>Buy</button></td>
+            <form method="post">
+                <input type="hidden" name="drinkId" value=@item.DrinkId />
+                <td><button class="drink-button" id=@("drink"+item.DrinkId) value=@item.Cost>Buy</button></td>
+            </form>
         }
     </tr>
 </table>

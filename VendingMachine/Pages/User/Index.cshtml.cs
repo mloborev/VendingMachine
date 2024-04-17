@@ -31,7 +31,7 @@ namespace VendingMachine.Pages.User
             DrinkViewModel.Coins = coins;
         }
 
-        public async Task OnPostAsync()
+        public async Task OnPostAsync(string drinkId)
         {
             var coins = await _coinRepository.GetAllDataAsync();
             for(var i = 1; i < 5; i++)

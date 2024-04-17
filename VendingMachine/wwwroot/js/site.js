@@ -14,18 +14,22 @@ else {
     totalElement.innerText = total;
 }
 
-const coinButtons = document.querySelectorAll('.coin-button');
+setOnClickOnCoinInsertButtons();
 
-coinButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        var clicks = localStorage.getItem(button.id);
-        var total = localStorage.getItem("total");
-        var newTotal = Number(total) + Number(button.getAttribute("value"));
-        localStorage.setItem(button.id, Number(clicks) + 1);
-        localStorage.setItem("total", newTotal);
-        console.log(`${button.id} clicked`);
+function setOnClickOnCoinInsertButtons() {
+    const coinButtons = document.querySelectorAll('.coin-button');
 
-        const totalElement = document.getElementById('total');
-        totalElement.innerText = newTotal;
+    coinButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            var clicks = localStorage.getItem(button.id);
+            var total = localStorage.getItem("total");
+            var newTotal = Number(total) + Number(button.getAttribute("value"));
+            localStorage.setItem(button.id, Number(clicks) + 1);
+            localStorage.setItem("total", newTotal);
+            console.log(`${button.id} clicked`);
+
+            const totalElement = document.getElementById('total');
+            totalElement.innerText = newTotal;
+        })
     })
-})
+}
