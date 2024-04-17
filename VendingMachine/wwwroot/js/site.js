@@ -1,15 +1,21 @@
 ﻿// Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
 // for details on configuring this project to bundle and minify static web assets.
 
-localStorage.setItem('coin1', 0);
-localStorage.setItem('coin2', 0);
-localStorage.setItem('coin3', 0);
-localStorage.setItem('coin4', 0);
-localStorage.setItem('total', 0);
+if (localStorage.getItem('total') == null) {
+    localStorage.setItem('coin1', 0);
+    localStorage.setItem('coin2', 0);
+    localStorage.setItem('coin3', 0);
+    localStorage.setItem('coin4', 0);
+    localStorage.setItem('total', 0);
+}
+else {
+    var total = localStorage.getItem("total");
+    const totalElement = document.getElementById('total');
+    totalElement.innerText = total;
+}
 
 const coinButtons = document.querySelectorAll('.coin-button');
 
-var iterator = 1;
 coinButtons.forEach(button => {
     button.addEventListener('click', () => {
         var clicks = localStorage.getItem(button.id);
